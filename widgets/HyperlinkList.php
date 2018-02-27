@@ -1,5 +1,5 @@
 <?php
-namespace asinfotrack\yii2\hyperlink\widgets;
+namespace asinfotrack\yii2\hyperlinks\widgets;
 
 use Yii;
 use yii\base\InvalidConfigException;
