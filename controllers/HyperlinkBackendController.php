@@ -37,7 +37,7 @@ class HyperlinkBackendController extends \yii\web\Controller
 
 		//access control filter if provided by module
 		$module = Module::getInstance();
-		if (!empty($module->backe)) {
+		if (!empty($module->backendAccessControl)) {
 			$behaviors['access'] = $module->backendAccessControl;
 		}
 

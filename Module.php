@@ -23,8 +23,8 @@ class Module extends \yii\base\Module
 	 * @var array array containing the classes to use for the individual model components.
 	 */
 	public $classMap = [
-		'hyperlinkModel'=>'asinfotrack\yii2\hyperlink\models\Hyperlink',
-		'hyperlinkSearchModel'=>'asinfotrack\yii2\hyperlink\models\search\HyperlinkSearch',
+		'hyperlinkModel'=>'asinfotrack\yii2\hyperlinks\models\Hyperlink',
+		'hyperlinkSearchModel'=>'asinfotrack\yii2\hyperlinks\models\search\HyperlinkSearch',
 	];
 
 	/**

@@ -32,7 +32,7 @@ class HyperlinkSearch extends \asinfotrack\yii2\hyperlinks\models\Hyperlink
 	public function search($params, $query=null)
 	{
 		if ($query === null) {
-			$query = call_user_func(Module::getInstance()->classMap['attachmentModel'], 'find');
+			$query = call_user_func([Module::getInstance()->classMap['hyperlinkModel'], 'find']);
 		}
 		$dataProvider = new ActiveDataProvider([
 			'query'=>$query,
