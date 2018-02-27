@@ -3,7 +3,7 @@ namespace asinfotrack\yii2\hyperlinks\models\search;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use asinfotrack\yii2\hyperlinks\models\Hyperlink;
+use asinfotrack\yii2\hyperlinks\Module;
 
 /**
  * The search model for the hyperlinks
@@ -31,7 +31,9 @@ class HyperlinkSearch extends \asinfotrack\yii2\hyperlinks\models\Hyperlink
 
 	public function search($params, $query=null)
 	{
-		if ($query === null) $query = Hyperlink::find();
+		if ($query === null) {
+			$query = call_user_func(Module::getInstance()->classMap['attachmentModel'], 'find');
+		}
 		$dataProvider = new ActiveDataProvider([
 			'query'=>$query,
 			'sort'=>[
