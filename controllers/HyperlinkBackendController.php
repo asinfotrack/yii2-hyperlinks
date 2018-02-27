@@ -91,7 +91,7 @@ class HyperlinkBackendController extends \yii\web\Controller
 	 * If the model is not found, a 404 HTTP exception will be thrown.
 	 *
 	 * @param integer $id
-	 * @return Hyperlink the loaded model
+	 * @return \asinfotrack\yii2\hyperlinks\models\Hyperlink the loaded model
 	 * @throws NotFoundHttpException if the model cannot be found
 	 */
 	protected function findModel($id)
