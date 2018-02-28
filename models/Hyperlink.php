@@ -72,14 +72,14 @@ class Hyperlink extends \yii\db\ActiveRecord
 	public function rules()
 	{
 		return [
-			[['model_type','foreign_pk','url','title','desc'], 'trim'],
-			[['model_type','foreign_pk','url','title','desc'], 'default'],
+			[['model_type','url','title','description'], 'trim'],
+			[['model_type','url','title','description'], 'default'],
 			[['is_new_tab'], 'default', 'value'=>false],
 
 			[['model_type','foreign_pk','url'], 'required'],
 
-			[['model_type','foreign_pk','url','title'], 'string', 'max'=>255],
-			[['desc'], 'string'],
+			[['model_type','url','title'], 'string', 'max'=>255],
+			[['description'], 'string'],
 			[['is_new_tab'], 'boolean'],
 			[['url'], 'url'],
 		];
@@ -97,7 +97,7 @@ class Hyperlink extends \yii\db\ActiveRecord
 			'is_new_tab'=>Yii::t('app', 'New tab'),
 			'url'=>Yii::t('app', 'URL'),
 			'title'=>Yii::t('app', 'Title'),
-			'desc'=>Yii::t('app', 'Description'),
+			'description'=>Yii::t('app', 'Description'),
 			'created'=>Yii::t('app', 'Created'),
 			'created_by'=>Yii::t('app', 'Created by'),
 			'updated'=>Yii::t('app', 'Updated'),
@@ -180,7 +180,7 @@ class Hyperlink extends \yii\db\ActiveRecord
 		Module::validateSubject($subject);
 
 		$this->model_type = $subject->className();
-		$this->foreign_pk = PrimaryKey::asJson($subject);
+		$this->foreign_pk = $subject->getPrimaryKey(true);
 		$this->subject = $subject;
 	}
 

@@ -47,6 +47,6 @@ $this->title = Yii::t('app', $model->displayTitle);
 		'url:url',
 		'is_new_tab:bool',
 		'title',
-		'desc',
+		'description',
 	],
 ]) ?>

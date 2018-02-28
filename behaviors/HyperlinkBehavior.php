@@ -49,7 +49,7 @@ class HyperlinkBehavior extends \yii\base\Behavior
 	 */
 	public function getHyperlinkQuery()
 	{
-		return call_user_func(Module::getInstance()->classMap['hyperlinkModel'], 'find')->subject($this->owner);
+		return call_user_func([Module::getInstance()->classMap['hyperlinkModel'], 'find'])->subject($this->owner);
 	}
 
 	/**

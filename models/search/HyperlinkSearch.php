@@ -20,7 +20,7 @@ class HyperlinkSearch extends \asinfotrack\yii2\hyperlinks\models\Hyperlink
 		return [
 			[['id','created','created_by','updated','updated_by'], 'integer'],
 			[['is_new_tab'], 'boolean'],
-			[['model_type','foreign_pk','url','title','desc'], 'safe'],
+			[['model_type','foreign_pk','url','title','description'], 'safe'],
 		];
 	}
 
@@ -34,32 +34,28 @@ class HyperlinkSearch extends \asinfotrack\yii2\hyperlinks\models\Hyperlink
 		if ($query === null) {
 			$query = call_user_func([Module::getInstance()->classMap['hyperlinkModel'], 'find']);
 		}
+
 		$dataProvider = new ActiveDataProvider([
 			'query'=>$query,
-			'sort'=>[
-				'defaultOrder'=>['hyperlink.created'=>SORT_DESC],
-			],
 		]);
 
-		if (!($this->load($params) && $this->validate())) {
-			return $dataProvider;
+		if ($this->load($params) && $this->validate()) {
+			$query->andFilterWhere([
+				'hyperlink.id' => $this->id,
+				'hyperlink.is_new_tab' => $this->is_new_tab,
+				'hyperlink.created' => $this->created,
+				'hyperlink.created_by' => $this->created_by,
+				'hyperlink.updated' => $this->updated,
+				'hyperlink.updated_by' => $this->updated_by,
+			]);
+
+			$query
+				->andFilterWhere(['like', 'hyperlink.model_type', $this->model_type])
+				->andFilterWhere(['like', 'hyperlink.foreign_pk', $this->foreign_pk])
+				->andFilterWhere(['like', 'hyperlink.url', $this->url])
+				->andFilterWhere(['like', 'hyperlink.title', $this->title])
+				->andFilterWhere(['like', 'hyperlink.desc', $this->desc]);
 		}
-
-		$query->andFilterWhere([
-			'id'=>$this->id,
-			'is_new_tab'=>$this->is_new_tab,
-			'created'=>$this->created,
-			'created_by'=>$this->created_by,
-			'updated'=>$this->updated,
-			'updated_by'=>$this->updated_by,
-		]);
-
-		$query
-			->andFilterWhere(['like', 'model_type', $this->model_type])
-			->andFilterWhere(['like', 'foreign_pk', $this->foreign_pk])
-			->andFilterWhere(['like', 'url', $this->url])
-			->andFilterWhere(['like', 'title', $this->title])
-			->andFilterWhere(['like', 'desc', $this->desc]);
 
 		return $dataProvider;
 	}

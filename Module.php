@@ -134,7 +134,7 @@ class Module extends \yii\base\Module
 	 */
 	public static function defaultUrlInput($form, $model, $attribute, $module, $view)
 	{
-		return $form->field($model, $attribute)->fileinput();
+		return $form->field($model, $attribute)->textInput();
 	}
 
 

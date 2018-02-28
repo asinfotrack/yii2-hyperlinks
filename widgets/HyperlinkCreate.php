@@ -6,6 +6,7 @@ use Yii;
 use yii\base\InvalidConfigException;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 use rmrevin\yii\fontawesome\FA;
@@ -138,7 +139,8 @@ class HyperlinkCreate extends \yii\base\Widget
 		$options['data']['target'] = '#'.$this->modalId;
 
 		return Button::widget([
-			'label'=>$label === null ? $this->modalTitle : $label,
+			'icon'=>'paperclip',
+			'label'=>$label === null ? Yii::t('app', 'Create hyperlink') : $label,
 			'encodeLabel'=>false,
 			'options'=>$options,
 		]);
@@ -162,13 +164,12 @@ class HyperlinkCreate extends \yii\base\Widget
 	protected function renderModalBegin()
 	{
 		$modalOptions = [];
-		if ($this->showModalImmediately) {
-			$modalOptions['data']['show-immediately'] = true;
-		}
+		$modalClientOptions = $this->showModalImmediately ? ['show'=>true] : [];
 
 		$this->modal = Modal::begin([
 			'id'=>$this->modalId,
 			'options'=>$modalOptions,
+			'clientOptions'=>$modalClientOptions,
 			'header'=>Html::tag('h4', $this->modalTitle),
 			'footer'=>$this->modalFooter,
 		]);

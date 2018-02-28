@@ -2,6 +2,7 @@
 namespace asinfotrack\yii2\hyperlinks\models\query;
 
 use asinfotrack\yii2\toolbox\helpers\PrimaryKey;
+use yii\helpers\Json;
 
 /**
  * Query class for the hyperlinks providing the most common named scopes
@@ -22,7 +23,7 @@ class HyperlinkQuery extends \yii\db\ActiveQuery
 	public function subject($model)
 	{
 		$this->modelTypes($model);
-		$this->andWhere(['hyperlinks.foreign_pk'=>static::createPrimaryKeyJson($model)]);
+		$this->andWhere(['hyperlink.foreign_pk'=>Json::encode($model->getPrimaryKey(true))]);
 		return $this;
 	}
 
@@ -43,7 +44,7 @@ class HyperlinkQuery extends \yii\db\ActiveQuery
 			if (!in_array($type, $types)) $types[] = $type;
 		}
 
-		$this->andWhere(['hyperlinks.model_type'=>$types]);
+		$this->andWhere(['hyperlink.model_type'=>$types]);
 		return $this;
 	}
 
@@ -57,20 +58,6 @@ class HyperlinkQuery extends \yii\db\ActiveQuery
 	{
 		$this->andWhere(['hyperlink.is_new_tab'=>$isNewTab ? 1 : 0]);
 		return $this;
-	}
-
-	/**
-	 * Creates the json-representation of the pk (array in the format attribute=>value)
-	 * @see \asinfotrack\yii2\toolbox\helpers\PrimaryKey::asJson()
-	 *
-	 * @param \yii\db\ActiveRecord $model the model
-	 * @return string json-representation of the pk-array
-	 * @throws \yii\base\InvalidParamException if the model is not of type ActiveRecord
-	 * @throws \yii\base\InvalidConfigException if the models pk is empty or invalid
-	 */
-	protected static function createPrimaryKeyJson($model)
-	{
-		return PrimaryKey::asJson($model);
 	}
 
 }
