@@ -54,7 +54,7 @@ class HyperlinkSearch extends \asinfotrack\yii2\hyperlinks\models\Hyperlink
 				->andFilterWhere(['like', 'hyperlink.foreign_pk', $this->foreign_pk])
 				->andFilterWhere(['like', 'hyperlink.url', $this->url])
 				->andFilterWhere(['like', 'hyperlink.title', $this->title])
-				->andFilterWhere(['like', 'hyperlink.desc', $this->desc]);
+				->andFilterWhere(['like', 'hyperlink.description', $this->description]);
 		}
 
 		return $dataProvider;

@@ -39,13 +39,14 @@ $this->title = Yii::t('app', $model->displayTitle);
 		],
 		[
 			'attribute'=>'subject',
+			'format'=>'html',
 			'value'=>implode(Html::tag('br'), [
 				Html::tag('span', StringHelper::basename($model->model_type)),
 				Html::tag('code', Json::encode($model->foreign_pk))
 			]),
 		],
 		'url:url',
-		'is_new_tab:bool',
+		'is_new_tab:boolean',
 		'title',
 		'description',
 	],
