@@ -92,7 +92,7 @@ class HyperlinkList extends \yii\base\Widget
 
 		//prepare options
 		$this->options['id'] = $this->id;
-		Html::addCssClass($this->options, 'widget-hyperlink-list');
+		Html::addCssClass($this->options, 'grid-view widget-hyperlink-list');
 	}
 
 	/**
