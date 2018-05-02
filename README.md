@@ -1,8 +1,6 @@
 # Yii2-hyperlinks
 Yii2-hyperlinks is a module and set of functionality to add hyperlinks to a model in a generic way
 
-__WATCH OUT: this extension is still under development. Breaking changes can occur without notice until first release!__
-
 ## Installation
 
 ### Basic installation
@@ -59,7 +57,7 @@ For a full list of options, see the attributes of the classes within the module.
 
 ## Changelog
 
-###### [v0.8.0] (work in progress)
+###### [v0.8.0](https://github.com/asinfotrack/yii2-hyperlinks/releases/tag/0.8.0)
 - main classes in a stable condition
 - further features will be added in a backwards-compatible way from here on
 - all breaking changes will lead to a new minor version.
