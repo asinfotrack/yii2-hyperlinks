@@ -7,8 +7,7 @@ use yii\helpers\Html;
 
 $module = \asinfotrack\yii2\hyperlinks\Module::getInstance();
 $form = ActiveForm::begin([
-	'enableClientValidation'=>$module->backendEnableClientValidation,
-	'enableAjaxValidation'=>$module->backendEnableAjaxValidation,
+	'enableClientValidation'=>true,
 ]);
 ?>
 
@@ -23,7 +22,10 @@ $form = ActiveForm::begin([
 <fieldset>
 	<legend><?= Yii::t('app', 'Hyperlink data') ?></legend>
 	<?= $this->render('_form_callback_input', [
-		'form'=>$form, 'model'=>$model, 'attribute'=>'url', 'callback'=>$module->urlInputCallback,
+		'form'=>$form,
+		'model'=>$model,
+		'attribute'=>'url',
+		'callback'=>$module->urlInputCallback,
 	]) ?>
 </fieldset>
 

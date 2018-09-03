@@ -5,6 +5,6 @@ return [
 
 	'defaultRoute'=>'hyperlink/index',
 
-	'urlInputCallback'=>[Module::className(), 'defaultUrlInput'],
+	'urlInputCallback'=>[Module::class, 'defaultUrlInput'],
 
 ];

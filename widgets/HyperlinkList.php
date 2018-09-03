@@ -101,7 +101,7 @@ class HyperlinkList extends \yii\base\Widget
 	 */
 	public function run()
 	{
-		if ($this->enablePjax) Pjax::begin(['id'=>sprintf('pjax-', $this->id)]);
+		if ($this->enablePjax) Pjax::begin(['id'=>sprintf('pjax-%s', $this->id)]);
 		echo GridView::widget([
 			'dataProvider'=>$this->dataProvider,
 			'filterModel'=>$this->searchModel,
