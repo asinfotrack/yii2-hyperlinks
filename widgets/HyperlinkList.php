@@ -5,6 +5,7 @@ use Yii;
 use yii\base\InvalidConfigException;
 use yii\grid\GridView;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\Pjax;
 use asinfotrack\yii2\hyperlinks\Module;
 use asinfotrack\yii2\toolbox\widgets\grid\AdvancedDataColumn;
@@ -138,25 +139,28 @@ class HyperlinkList extends \yii\base\Widget
 	{
 		return [
 			[
-				'class'=>IdColumn::className(),
+				'class'=>IdColumn::class,
 				'attribute'=>'id',
 			],
 			[
-				'class'=>AdvancedDataColumn::className(),
+				'class'=>AdvancedDataColumn::class,
 				'attribute'=>'title',
 				'columnWidth'=>20,
 			],
 			[
 				'attribute'=>'url',
-				'format'=>'url',
+				'format'=>'raw',
+				'value'=>function ($model, $key, $index, $column) {
+					return Html::a($model->url, Url::to($model->url), ['target'=>$model->is_new_tab ? '_blank' : '']);
+				},
 			],
 			'title',
 			[
-				'class'=>BooleanColumn::className(),
+				'class'=>BooleanColumn::class,
 				'attribute'=>'is_new_tab',
 			],
 			[
-				'class'=>AdvancedActionColumn::className(),
+				'class'=>AdvancedActionColumn::class,
 			],
 		];
 	}
