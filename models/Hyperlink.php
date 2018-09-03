@@ -10,6 +10,7 @@ use yii\helpers\Json;
 use asinfotrack\yii2\hyperlinks\Module;
 use asinfotrack\yii2\hyperlinks\models\query\HyperlinkQuery;
 use asinfotrack\yii2\toolbox\helpers\PrimaryKey;
+use yii\validators\UrlValidator;
 
 /**
  * This is the model class for table "hyperlink".
@@ -81,7 +82,16 @@ class Hyperlink extends \yii\db\ActiveRecord
 			[['model_type','url','title'], 'string', 'max'=>255],
 			[['description'], 'string'],
 			[['is_new_tab'], 'boolean'],
-			[['url'], 'url'],
+			[['url'], function ($attribute, $params) {
+				if (empty($this->{$attribute})) return;
+				$urlValidator = new UrlValidator();
+				if (!$urlValidator->validate($this->{$attribute})) {
+					if (strpos($this->{$attribute},'@web') === false) {
+						$this->addError($attribute, Yii::t('app', 'URL incorrect! Correct: http(s)://www.gibb.ch/'));
+						return;
+					}
+				}
+			}],
 		];
 	}
 
