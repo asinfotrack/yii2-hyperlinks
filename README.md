@@ -57,6 +57,13 @@ For a full list of options, see the attributes of the classes within the module.
 
 ## Changelog
 
+###### [v0.8.2](https://github.com/asinfotrack/yii2-hyperlinks/releases/tag/0.8.2)
+- bug fix pop up client validation
+- changed url attribute in grid widget for @web
+
+###### [v0.8.1](https://github.com/asinfotrack/yii2-hyperlinks/releases/tag/0.8.1)
+- changed url validator to use @web
+
 ###### [v0.8.0](https://github.com/asinfotrack/yii2-hyperlinks/releases/tag/0.8.0)
 - main classes in a stable condition
 - further features will be added in a backwards-compatible way from here on
