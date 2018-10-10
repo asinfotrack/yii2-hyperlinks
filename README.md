@@ -57,6 +57,10 @@ For a full list of options, see the attributes of the classes within the module.
 
 ## Changelog
 
+###### [v0.8.3](https://github.com/asinfotrack/yii2-hyperlinks/releases/tag/0.8.3)
+- bug fix label translation
+- bottons arrangement changed
+
 ###### [v0.8.2](https://github.com/asinfotrack/yii2-hyperlinks/releases/tag/0.8.2)
 - bug fix pop up client validation
 - changed url attribute in grid widget for @web
