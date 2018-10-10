@@ -57,7 +57,7 @@ For a full list of options, see the attributes of the classes within the module.
 
 ## Changelog
 
-###### [v0.8.4](https://github.com/asinfotrack/yii2-hyperlinks/releases/tag/0.8.4)
+###### [v0.8.5](https://github.com/asinfotrack/yii2-hyperlinks/releases/tag/0.8.5)
 - bottons arrangement changed
 
 ###### [v0.8.4](https://github.com/asinfotrack/yii2-hyperlinks/releases/tag/0.8.4)
