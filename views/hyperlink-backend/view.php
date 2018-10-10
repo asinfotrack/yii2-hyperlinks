@@ -9,27 +9,28 @@ use asinfotrack\yii2\toolbox\widgets\Button;
 /* @var $this \yii\web\View */
 /* @var $model \asinfotrack\yii2\hyperlinks\models\Hyperlink */
 
-$this->title = Yii::t('app', $model->displayTitle);
+$this->title = $model->displayTitle;
 ?>
-
-<?= Button::widget([
-	'tagName'=>'a',
-	'icon'=>'list',
-	'label'=>Yii::t('app', 'All hyperlinks'),
-	'options'=>[
-		'href'=>Url::to(['hyperlink-backend/index']),
-		'class'=>'btn btn-primary',
-	],
-]) ?>
-<?= Button::widget([
-	'tagName'=>'a',
-	'icon'=>'pencil',
-	'label'=>Yii::t('app', 'Update hyperlink'),
-	'options'=>[
-		'href'=>Url::to(['hyperlink-backend/update', 'id'=>$model->id]),
-		'class'=>'btn btn-primary',
-	],
-]) ?>
+<div class="buttons">
+	<?= Button::widget([
+		'tagName'=>'a',
+		'icon'=>'list',
+		'label'=>Yii::t('app', 'All hyperlinks'),
+		'options'=>[
+			'href'=>Url::to(['hyperlink-backend/index']),
+			'class'=>'btn btn-primary',
+		],
+	]) ?>
+	<?= Button::widget([
+		'tagName'=>'a',
+		'icon'=>'pencil',
+		'label'=>Yii::t('app', 'Update hyperlink'),
+		'options'=>[
+			'href'=>Url::to(['hyperlink-backend/update', 'id'=>$model->id]),
+			'class'=>'btn btn-primary',
+		],
+	]) ?>
+</div>
 
 <?= DetailView::widget([
 	'model'=>$model,

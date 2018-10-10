@@ -28,7 +28,7 @@ array_multisort($typeFilter);
 	'filterModel'=>$searchModel,
 	'columns'=>[
 		[
-			'class'=>IdColumn::className(),
+			'class'=>IdColumn::class,
 			'attribute'=>'id',
 		],
 		[
@@ -45,22 +45,22 @@ array_multisort($typeFilter);
 			},
 		],
 		[
-			'class'=>AdvancedDataColumn::className(),
+			'class'=>AdvancedDataColumn::class,
 			'attribute'=>'title',
 			'columnWidth'=>20,
 		],
 		[
-			'class'=>AdvancedDataColumn::className(),
+			'class'=>AdvancedDataColumn::class,
 			'attribute'=>'url',
 			'format'=>'url',
 		],
 		'title',
 		[
-			'class'=>BooleanColumn::className(),
+			'class'=>BooleanColumn::class,
 			'attribute'=>'is_new_tab',
 		],
 		[
-			'class'=>AdvancedActionColumn::className(),
+			'class'=>AdvancedActionColumn::class,
 		],
 	],
 ]); ?>
