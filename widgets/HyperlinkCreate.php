@@ -101,8 +101,8 @@ class HyperlinkCreate extends \yii\base\Widget
 		//set default settings
 		if ($this->useModal) {
 			if (empty($this->modalId)) {
-				$subjectClass = StringHelper::basename($this->subject->class);
-				$widgetClass = StringHelper::basename($this->class);
+				$subjectClass = StringHelper::basename($this->subject->className());
+				$widgetClass = StringHelper::basename($this->className());
 				$this->modalId = Inflector::camel2id($subjectClass . $widgetClass);
 			}
 			if (empty($this->modalTitle)) {
